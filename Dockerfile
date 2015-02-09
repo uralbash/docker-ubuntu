@@ -21,7 +21,7 @@ RUN pip install pip virtualenv virtualenvwrapper -U
 
 ## Add USER
 RUN useradd -m -s /bin/bash ${HOME_USER} && \
-    echo ${HOME_USER}":"{HOME_PASS}|chpasswd && \
+    echo "${HOME_USER}:${HOME_PASS}"|chpasswd && \
     adduser ${HOME_USER} sudo && \
     echo ${HOME_USER}' ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
@@ -68,4 +68,4 @@ USER root
 
 ## Run sshd
 EXPOSE 22
-CMD ["/usr/sbin/sshd", "-D"]
+ENTRYPOINT ["/usr/sbin/sshd", "-D"]
