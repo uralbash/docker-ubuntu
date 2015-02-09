@@ -68,4 +68,7 @@ USER root
 
 ## Run sshd
 EXPOSE 22
-ENTRYPOINT ["/usr/sbin/sshd", "-D"]
+CMD ["/usr/sbin/sshd", "-D"]
+
+ONBUILD EXPOSE 22
+ONBUILD CMD ["/usr/sbin/sshd", "-D"]
