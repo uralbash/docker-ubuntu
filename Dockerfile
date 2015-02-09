@@ -67,8 +67,8 @@ RUN mkdir -pm 700 $HOME/.ssh && \
 USER root
 
 ## Run sshd
-EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
+EXPOSE 22
 
-ONBUILD EXPOSE 22
 ONBUILD CMD ["/usr/sbin/sshd", "-D"]
+ONBUILD EXPOSE 22
