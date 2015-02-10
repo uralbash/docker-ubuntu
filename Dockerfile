@@ -16,6 +16,10 @@ RUN apt-get -qqy install bash-completion
 RUN apt-get -qqy install wget telnet tmux git vim man
 RUN apt-get -qqy install python-pip python-dev python3.4-dev
 
+## Pillow
+RUN apt-get -qqy install libtiff5-dev libjpeg8-dev zlib1g-dev \
+    libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev python-tk
+
 ## Python
 RUN pip install pip virtualenv virtualenvwrapper -U
 
@@ -31,10 +35,16 @@ RUN apt-get install -y openssh-server && \
     sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config && \
     sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 
-ENV NOTVISIBLE "in users profile"
-RUN echo "export VISIBLE=now" >> /etc/profile
-
 USER ${HOME_USER}
+
+## Python
+RUN pip install pillow psycopg2 ipython ipdb --user
+
+## Github + BitBucket
+RUN mkdir $HOME/.ssh
+RUN chmod 700 $HOME/.ssh
+RUN ssh-keyscan -H github.com >> $HOME/.ssh/known_hosts
+RUN ssh-keyscan -H bitbucket.com >> $HOME/.ssh/known_hosts
 
 ## Bash
 RUN sed -i "s/#force_color_prompt=yes/force_color_prompt=yes/g" $HOME/.bashrc
