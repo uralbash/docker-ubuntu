@@ -1,6 +1,6 @@
-# healthdesk
+# ubuntu
 #
-# VERSION               0.0.2
+# VERSION               0.0.3
 # vi: set ft=Dockerfile :
 
 FROM ubuntu:14.10
