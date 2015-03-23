@@ -1,6 +1,6 @@
 # ubuntu
 #
-# VERSION               0.0.3
+# VERSION               0.0.4
 # vi: set ft=Dockerfile :
 
 FROM ubuntu:14.10
@@ -13,7 +13,7 @@ ENV HOME_PASS 123
 RUN apt-get -qq update
 RUN apt-get -qqy install postgresql-client-9.4 libpq-dev
 RUN apt-get -qqy install bash-completion
-RUN apt-get -qqy install wget curl telnet tmux git vim man
+RUN apt-get -qqy install wget curl telnet tmux git vim man tree
 RUN apt-get -qqy install python-pip python-dev python3.4-dev
 
 ## Pillow
