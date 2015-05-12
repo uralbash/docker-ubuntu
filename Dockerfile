@@ -1,9 +1,9 @@
 # ubuntu
 #
-# VERSION               0.0.4
+# VERSION               0.0.5
 # vi: set ft=Dockerfile :
 
-FROM ubuntu:14.10
+FROM ubuntu:15.04
 MAINTAINER Dmitry Svintsov <root@uralbash.ru>
 
 ENV HOME_USER vagrant
