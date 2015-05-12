@@ -14,6 +14,7 @@ RUN apt-get -qq update
 RUN apt-get -qqy install postgresql-client-9.4 libpq-dev
 RUN apt-get -qqy install bash-completion
 RUN apt-get -qqy install wget curl telnet tmux git vim man tree
+RUN apt-get -qqy install sudo iputils-ping
 RUN apt-get -qqy install python-pip python-dev python3.4-dev
 
 ## Pillow

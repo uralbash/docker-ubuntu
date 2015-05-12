@@ -20,7 +20,7 @@ This is really a good choice for development projects and your custom Dockerfile
 
 # Base Docker Image
 
-[ubuntu:14.10](https://registry.hub.docker.com/u/library/ubuntu/)
+[ubuntu:15.04](https://registry.hub.docker.com/u/library/ubuntu/)
 
 # Installation
 
